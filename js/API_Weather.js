@@ -7,14 +7,20 @@ const API_URL = "https://api.openweathermap.org/data/2.5/weather";
 // Base source icon
 const API_URL_ICON = "http://openweathermap.org/img/wn/";
 
+var ville = "vide";
+
+function autre(){
+  ville = document.getElementById("city-input").value;
+  start();
+}
 
 class API_WEATHER{
   constructor(city){
     // Si la ville n'est pas définit alors la ville par défault est Paris
-    if(city === undefined){
+    if(ville === "vide"){
       city = "paris";
     }
-    this.city = city;
+    this.city = ville;
   }
 
   // Faire la requete à l'API openweathermap
